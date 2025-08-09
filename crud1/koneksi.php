@@ -1,8 +1,8 @@
 <?php
 
-$koneksi = mysqli_connect("localhost", "root", "", "crud1");
+$koneksi = mysqli_connect("localhost", "", "", "php_natip");
 
-function ambildata($query) {
+function ambilData($query) {
     include 'koneksi.php';
     $result = mysqli_query($koneksi, $query);
     $data = [];
