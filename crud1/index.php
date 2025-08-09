@@ -19,15 +19,40 @@ $bukus = ambilData("SELECT * FROM buku");
 <body>
     <div class="container my-5">
         <h1 class="mb-4">Daftar Buku</h1>
-        <?php foreach ($bukus as $buku): ?>
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h2 class="card-title"><?= htmlspecialchars($buku['nama']); ?></h2>
-                    <p class="card-text"><strong>Penulis:</strong> <?= htmlspecialchars($buku['penulis']); ?></p>
-                    <p class="card-text"><strong>Penerbit:</strong> <?= htmlspecialchars($buku['penerbit']); ?></p>
-                </div>
-            </div>
-        <?php endforeach; ?>
+        <table class="table table-striped table-bordered align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Nama Buku</th>
+                    <th>Penulis</th>
+                    <th>Penerbit</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($bukus as $index => $buku): ?>
+                <tr>
+                    <td><?= $index + 1; ?></td>
+                    <td><?= htmlspecialchars($buku['nama']); ?></td>
+                    <td><?= htmlspecialchars($buku['penulis']); ?></td>
+                    <td><?= htmlspecialchars($buku['penerbit']); ?></td>
+                    <td>
+                        <a href="update.php?id=<?= urlencode($buku['id']); ?>" class="btn btn-sm btn-primary">Update</a>
+                        <a href="delete.php?id=<?= urlencode($buku['id']); ?>" 
+                           class="btn btn-sm btn-danger"
+                           onclick="return confirm('Yakin ingin menghapus buku ini?');">
+                           Delete
+                        </a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+                <?php if (empty($bukus)): ?>
+                <tr>
+                    <td colspan="5" class="text-center">Data buku kosong.</td>
+                </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
     </div>
 
     <!-- Bootstrap JS (optional) -->
