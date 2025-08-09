@@ -2,7 +2,8 @@
 
 require 'koneksi.php';
 
-$bukus = ambildata("SELECT * FROM buku");
+$bukus = ambilData("SELECT * FROM buku");
+
 
 ?>
 
@@ -15,9 +16,9 @@ $bukus = ambildata("SELECT * FROM buku");
 </head>
 <body>
     <?php foreach ($bukus as $buku): ?>
-        <h2><?= htmlspecialchars($buku['judul']); ?></h2>
+        <h2><?= htmlspecialchars($buku['nama']); ?></h2>
         <p>Penulis: <?= htmlspecialchars($buku['penulis']); ?></p>
-        <p>Tahun Terbit: <?= htmlspecialchars($buku['tahun_terbit']); ?></p>
+        <p>Tahun Terbit: <?= htmlspecialchars($buku['penerbit']); ?></p>
         <hr>
     <?php endforeach; ?>
 </body>
