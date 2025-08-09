@@ -17,5 +17,10 @@ function ambilData($query) {
     return $data;
 }
 
-
+function hapus($id) {
+    global $koneksi;
+    $query = "DELETE FROM buku WHERE id = $id";
+    mysqli_query($koneksi, $query);
+    return mysqli_affected_rows($koneksi);
+}
 ?>
