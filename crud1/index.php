@@ -32,6 +32,7 @@ if (isset($_GET['id'])) {
 <body>
     <div class="container my-5">
         <h1 class="mb-4">Daftar Buku</h1>
+        <a href="tambah.php" class="btn btn-success mb-3">Tambah Buku</a>
         <table class="table table-striped table-bordered align-middle">
             <thead class="table-dark">
                 <tr>
