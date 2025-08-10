@@ -3,10 +3,20 @@
 require 'koneksi.php';
 
 if (isset($_POST['submit'])) {
-    $nama = $_POST['nama'];
-    $penulis = $_POST['penulis'];
-    $penerbit = $_POST['penerbit'];
+  if (tambah($_POST) > 0) {
+    echo "<script>
+            alert('Data berhasil ditambahkan!');
+            document.location.href = 'index.php';
+          </script>";
+  } else {
+    echo "<script>
+            alert('Data gagal ditambahkan!');
+            document.location.href = 'tambah.php';
+          </script>";
+  }
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +27,7 @@ if (isset($_POST['submit'])) {
     <title>Document</title>
 </head>
 <body>
-    form action="" method="post">
+    <form action="" method="post">
         <label for="nama">Nama Buku:</label>
         <input type="text" name="nama" id="nama" required>
         
