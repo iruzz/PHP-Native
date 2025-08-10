@@ -23,4 +23,15 @@ function hapus($id) {
     mysqli_query($koneksi, $query);
     return mysqli_affected_rows($koneksi);
 }
+
+function tambah($data) {
+    global $koneksi;
+    $nama = htmlspecialchars($data['nama']);
+    $penulis = htmlspecialchars($data['penulis']);
+    $penerbit = htmlspecialchars($data['penerbit']);
+
+    $query = "INSERT INTO buku (nama, penulis, penerbit) VALUES ('$nama', '$penulis', '$penerbit')";
+    mysqli_query($koneksi, $query);
+    return mysqli_affected_rows($koneksi);
+}
 ?>
